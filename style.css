@@ -1,0 +1,267 @@
+/* =====================
+   GENERAL STYLES
+===================== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background: #111;
+    padding: 15px;
+    text-align: center;
+    z-index: 100;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00e5ff;
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* =====================
+   DARK HOME PAGE
+===================== */
+.dark {
+    background: #0f172a;
+    color: white;
+    min-height: 100vh;
+}
+
+/* HOME PAGE HEADER ANIMATION */
+.animated-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00e5ff;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideFadeIn 1.5s forwards;
+    animation-delay: 0.3s;
+}
+
+/* HOME PAGE NAME LIST */
+.name-list {
+    list-style: none;
+    padding: 0;
+    max-width: 350px;
+    margin: 40px auto;
+}
+
+.name-list li {
+    background: #1e293b;
+    margin: 12px 0;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+
+    /* Animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideUp 0.8s forwards;
+}
+
+/* Animate each list item with small delay */
+.name-list li:nth-child(1) { animation-delay: 0.5s; }
+.name-list li:nth-child(2) { animation-delay: 0.7s; }
+.name-list li:nth-child(3) { animation-delay: 0.9s; }
+.name-list li:nth-child(4) { animation-delay: 1.1s; }
+.name-list li:nth-child(5) { animation-delay: 1.3s; }
+
+/* Hover effect for names */
+.name-list li:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 229, 255, 0.7);
+    background: #111f38;
+    transition: all 0.3s ease;
+}
+
+/* =====================
+   CLOCK PAGE BACKGROUND
+===================== */
+.clock-bg {
+    background: linear-gradient(135deg, #ff0080, #7928ca);
+    min-height: 100vh;
+    color: white;
+}
+
+/* =====================
+   GLASS / NEON CLOCK
+===================== */
+.clock {
+    width: 320px;
+    height: 320px;
+    margin: 40px auto;
+    border-radius: 50%;
+    position: relative;
+
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Neon glow */
+    box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 40px rgba(138, 43, 226, 0.6),
+        inset 0 0 20px rgba(255, 255, 255, 0.4);
+
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+/* =====================
+   CLOCK NUMBERS
+===================== */
+.num {
+    position: absolute;
+    font-weight: bold;
+    font-size: 18px;
+    color: #0f172a;
+    text-shadow:
+        0 0 5px #00e5ff,
+        0 0 10px #00e5ff;
+}
+
+/* Number positions */
+.n12 { top: 10px; left: 50%; transform: translateX(-50%); }
+.n3  { right: 10px; top: 50%; transform: translateY(-50%); }
+.n6  { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.n9  { left: 10px; top: 50%; transform: translateY(-50%); }
+
+.n1  { top: 30px; right: 85px; }
+.n2  { top: 70px; right: 35px; }
+.n4  { bottom: 70px; right: 35px; }
+.n5  { bottom: 30px; right: 85px; }
+
+.n7  { bottom: 30px; left: 85px; }
+.n8  { bottom: 70px; left: 35px; }
+.n10 { top: 70px; left: 35px; }
+.n11 { top: 30px; left: 85px; }
+
+/* =====================
+   CLOCK HANDS
+===================== */
+.clock .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    transform: rotate(0deg);
+    transition: transform 0.1s linear;
+}
+
+.clock .hour {
+    width: 6px;
+    height: 80px;
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
+.clock .minute {
+    width: 4px;
+    height: 115px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
+.clock .second {
+    width: 2px;
+    height: 135px;
+    background: #ff1744;
+    border-radius: 6px;
+    box-shadow:
+        0 0 10px #ff1744,
+        0 0 20px #ff1744;
+}
+
+/* =====================
+   CENTER DOT
+===================== */
+.clock .center-dot {
+    width: 14px;
+    height: 14px;
+    background: #0f172a;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #00e5ff;
+}
+
+/* =====================
+   KEYFRAMES
+===================== */
+@keyframes slideFadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+/* =====================
+   CLOCK HEADER ANIMATION
+===================== */
+.clock-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffea00;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideFadeIn 1.5s forwards;
+    animation-delay: 0.3s;
+    text-shadow:
+        0 0 5px #ffea00,
+        0 0 10px #ffea00,
+        0 0 20px #ff0080;
+}
+/* =====================
+   CLOCK HOVER PULSE EFFECT
+===================== */
+.clock:hover {
+    animation: pulseGlow 1s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow:
+            0 0 20px rgba(0, 255, 255, 0.6),
+            0 0 40px rgba(138, 43, 226, 0.6),
+            inset 0 0 20px rgba(255, 255, 255, 0.4);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow:
+            0 0 30px rgba(0, 255, 255, 0.8),
+            0 0 60px rgba(138, 43, 226, 0.8),
+            inset 0 0 25px rgba(255, 255, 255, 0.5);
+        transform: scale(1.02);
+    }
+}
+/* =====================
+   CLOCK NUMBERS HOVER EFFECT
+===================== */
+.clock .num:hover {
+    color: #ffea00;
+    text-shadow:
+        0 0 5px #ffea00,
+        0 0 10px #ff0080,
+        0 0 15px #ff00ff;
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+    cursor: default;
+}
